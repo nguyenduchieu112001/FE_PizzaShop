@@ -1,22 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import InputEmail from "./InputEmail";
 
 function InputEmailAPI() {
-  const [email, setEmail] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
-  const userRef = useRef();
-  const errRef = useRef();
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
-
-  const handleSendEmail = async (e) => {
-    e.preventDefault();
+  const handleSendEmail = async (email) => {
     try {
       const response = await axios.get(
         `http://localhost:8080/api/v1/customer/find-by-email?email=${email}`,
@@ -42,23 +34,21 @@ function InputEmailAPI() {
           withCredentials: true,
         }
       );
-      setEmail("");
       navigate("/change-password");
     } catch (error) {
       if (error?.response) {
         setErrMsg(error.response.data.message);
-        setEmail("");
+        toast.error(error.response.data.message, {
+          draggable: true,
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
     }
   };
   return (
     <InputEmail
-      setEmail={setEmail}
       errMsg={errMsg}
       handleSendEmail={handleSendEmail}
-      errRef={errRef}
-      userRef={userRef}
-      email={email}
     />
   );
 }

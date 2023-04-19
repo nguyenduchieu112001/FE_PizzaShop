@@ -1,117 +1,122 @@
-import { faCheck, faInfoCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, Card, Form, Input } from "antd";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-function ChangePassword({
-  errRef,
-  form,
-  setForm,
-  valid,
-  errMsg,
-  focus,
-  setFocus,
-  handleSubmit,
-}) {
+function ChangePassword({ errMsg, handleSubmit }) {
+  const navigate = useNavigate();
+  const onFinish = (values) => {
+    handleSubmit(values.newPassword, values.code);
+  };
+
+  const onFinishFailed = () => {
+    toast.error(errMsg, {
+      draggable: true,
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
+  const handleCancel = () => {
+    navigate("/sign-in");
+  };
   return (
     <>
-      <section>
-        <p
-          ref={errRef}
-          className={errMsg ? "errmsg" : "offscreen"}
-          aria-live="assertive"
+      <Card
+        title={<h1>Change Password</h1>}
+        bordered={true}
+        style={{
+          width: "40%",
+          border: "solid",
+        }}
+      >
+        <Form
+          name="basic"
+          labelCol={{
+            span: 6,
+          }}
+          wrapperCol={{
+            span: 18,
+          }}
+          style={{
+            maxWidth: 600,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
         >
-          {errMsg}
-        </p>
-        <h1>Change Password</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="password">
-            Password:
-            <span className={valid.password ? "valid" : "hide"}>
-              <FontAwesomeIcon icon={faCheck} />
-            </span>
-            <span className={
-              valid.password || !form.password ? "hide" : "valid"
-            }>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            required
-            aria-invalid={valid.password ? "false" : "true"}
-            aria-describedby="pwdnote"
-            onFocus={() => setFocus({ ...focus, password:true})}
-            onBlur={() => setFocus({ ...focus, password:false})}
-          />
-          <p
-            id="pwdnote"
-            className={
-              focus.password && !valid.password ? "instructions" : "offscreen"
-            }
+          <Form.Item
+            label="New Password"
+            name="newPassword"
+            rules={[
+              {
+                required: true,
+                message: "Please input your New Password!",
+              },
+              {
+                type: "password",
+                message: "Please enter a valid Password!",
+              },
+            ]}
           >
-            <FontAwesomeIcon icon={faInfoCircle} />
-            8 to 24 characters. <br />
-            Must include uppercase and lowercase letters, a number and a special
-            character. <br />
-            Allowed special; characters:{" "}
-            <span aria-label="exclamation mark">!</span>
-            <span aria-label="st symbol">@</span>
-            <span aria-label="hashtag">#</span>
-            <span aria-label="dollar sign">$</span>
-            <span aria-label="percent">%</span>
-          </p>
-          <label htmlFor="confirm_pwd">
-            Confirm Password:
-            <span
-              className={
-                valid.confirm && form.confirm ? "valid" : "hide"
-              }
-            >
-              <FontAwesomeIcon icon={faCheck} />
-            </span>
-            <span
-              className={
-                valid.confirm || !valid.confirm ? "hide" : "invalid"
-              }
-            >
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </label>
-          <input
-            type="password"
-            id="confirm_pwd"
-            onChange={(e) => setForm({ ...form, confirm: e.target.value })}
-            required
-            aria-invalid={valid.confirm ? "false" : "true"}
-            aria-describedby="confirmnote"
-            onFocus={() => setFocus({ ...focus, confirm:true})}
-            onBlur={() => setFocus({ ...focus, confirm:false})}
-          />
-          <p
-            id="confirmnote"
-            className={
-              focus.confirm && !valid.confirm
-                ? "instructions"
-                : "offscreen"
-            }
+            <Input.Password />
+          </Form.Item>
+          <Form.Item
+            label="Confirm Password"
+            name="confirmPassword"
+            dependencies={["newPassword"]}
+            rules={[
+              {
+                required: true,
+                message: "Please input your Confirm Password!",
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue("newPassword") === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    new Error("Confirm Password does not match!")
+                  );
+                },
+              }),
+            ]}
           >
-            <FontAwesomeIcon icon={faInfoCircle} />
-            Must match the first Password input field.
-          </p>
-          <label htmlFor="code">
-            Code:
-          </label>
-          <input type="number" id="code" onChange={(e) => setForm({...form, code: e.target.value})}
-          required aria-invalid={valid.code ? "false" : "true"}
-          aria-describedby="codenote"
-          onFocus={() => setFocus({ ...focus, code:true})}
-          onBlur={() => setFocus({ ...focus, code:false})}
-        />
-        <button disabled={!valid.password || !valid.confirm || !valid.code  ? true : false}>Change password</button>
-        </form>
-      </section>
+            <Input.Password />
+          </Form.Item>
+          <Form.Item
+            label="Code"
+            name="code"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Code!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ marginRight: "16px" }}
+            >
+              Change password
+            </Button>
+            <Button htmlType="button" onClick={handleCancel}>
+              Cancel
+            </Button>
+          </Form.Item>
+        </Form>
+      </Card>
     </>
   );
 }

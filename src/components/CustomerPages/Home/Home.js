@@ -120,7 +120,7 @@ function Home() {
           <div className="wrap-form-contact">
             <div className="form-contact-info">
               <h2>Contact Us</h2>
-              <p>500 Terry Francine Street San Francisco, CA 94158</p>
+              <p>39 Phạm Thị Liên, Kim Long, Huế</p>
               <div className="contact-info-content">
                 <div className="open-hours">
                   <p>Mon - Fri: 12pm - 10pm</p>
@@ -128,8 +128,8 @@ function Home() {
                   <p>Sunday: 11am - 11pm</p>
                 </div>
                 <div className="contact-info">
-                  <p>info@mysite.com</p>
-                  <p>123-456-7890</p>
+                  <p>nguyenduchieu112001@gmail.com</p>
+                  <p>0912-7662-685</p>
                 </div>
               </div>
             </div>

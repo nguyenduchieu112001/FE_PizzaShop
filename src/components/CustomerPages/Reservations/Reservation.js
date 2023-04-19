@@ -53,7 +53,7 @@ function Reservation({
                   onChange={handleHourChange}
                   id="time"
                 >
-                  {Array.from({ length: 10 }, (_, i) => 12 + i).map((hour) => (
+                  {Array.from({ length: 11 }, (_, i) => 12 + i).map((hour) => (
                     <option key={hour} value={`${hour}:00:00`}>
                       {`${hour}:00:00`}
                     </option>

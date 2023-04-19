@@ -3,11 +3,11 @@ import "./ConfirmReservation.css";
 import NavBar from "../Home/NavBar";
 import { Link, useLocation } from "react-router-dom";
 import PayPalAPI from "./PayPalAPI";
+import { ImLocation2 } from "react-icons/im";
+import { AiFillCalendar, AiFillClockCircle } from "react-icons/ai";
+import { BsFillPeopleFill } from "react-icons/bs";
 
-function ConfirmReservation({
-  customerData,
-  handleReservationClick,
-}) {
+function ConfirmReservation({ customerData, handleReservationClick }) {
   const location = useLocation();
   const numPeople = location.state && location.state.numPeople;
   const selectedDate = location.state && location.state.selectedDate;
@@ -60,12 +60,18 @@ function ConfirmReservation({
                   disabled
                 />
               </label>
-              <p>
-                Thank you for choosing our restaurant. Please note that we will
-                hold your table for up to 15 minutes from the time of your
-                reservation. If your plans change or you anticipate being late,
-                kindly let us know as soon as possible. We look forward to
-                hosting you!
+              <p
+                style={{
+                  fontStyle: "italic",
+                  textIndent: "30px",
+                  color: "red",
+                }}
+              >
+                Cảm ơn bạn đã chọn nhà hàng của chúng tôi. Xin lưu ý rằng chúng
+                tôi sẽ giữ bàn của bạn trong tối đa 15 phút kể từ thời điểm bạn
+                đặt chỗ. Nếu kế hoạch của bạn thay đổi hoặc bạn dự đoán bị trễ,
+                vui lòng cho chúng tôi biết càng sớm càng tốt. Chúng tôi mong
+                được đón tiếp bạn!
               </p>
               <div style={{ width: "100%" }}>
                 <PayPalAPI
@@ -81,10 +87,15 @@ function ConfirmReservation({
             style={{ textAlign: "left" }}
           >
             <div className="detail detail-bottom">
-              <h6>Reservation details:</h6>
-              <p>San Francisco</p>
+              <h4>
+                <b>Reservation details:</b>
+              </h4>
+              <p style={{ display: "flex" }}>
+                <ImLocation2 className="mx-2" /> 39 Phạm Thị Liên, Kim Long, Huế
+              </p>
               {selectedDate && (
-                <p>
+                <p style={{ display: "flex" }}>
+                  <AiFillCalendar className="mx-2" />
                   {selectedDate.toLocaleString("en-us", {
                     weekday: "long",
                     month: "short",
@@ -94,7 +105,8 @@ function ConfirmReservation({
                 </p>
               )}
               {selectedHour && (
-                <p>
+                <p style={{ display: "flex" }}>
+                  <AiFillClockCircle className="mx-2" />
                   {selectedHour.toLocaleString("en-US", {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -102,8 +114,16 @@ function ConfirmReservation({
                   })}
                 </p>
               )}
-              <p>{numPeople} guests</p>
-              <Link to="/home" onClick={() => handleReservationClick("reservationId")}>Change</Link>
+              <p style={{ display: "flex" }}>
+                <BsFillPeopleFill className="mx-2" />
+                {numPeople} guests
+              </p>
+              <Link
+                to="/home"
+                onClick={() => handleReservationClick("reservationId")}
+              >
+                Change
+              </Link>
             </div>
           </div>
         </div>

@@ -18,40 +18,44 @@ function HistoryAPI() {
 
   const fetchData = async () => {
     try {
-      const responseCustomer = await axios.get(
-        `http://localhost:8080/api/v1/customer/information`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        }
-      );
-      const customerId = responseCustomer.data.id;
-
-      const responseReservation = await axios.get(
-        `http://localhost:8080/api/v1/customer/reservation/${customerId}?page=${pageReservation}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        }
-      );
-      setReservation(responseReservation.data.content);
-      setTotalElementReservation(responseReservation.data.totalElement);
-
-      const responseBill = await axios.get(
-        `http://localhost:8080/api/v1/customer/bill/${customerId}?page=${pageBill}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        }
-      );
-      setBill(responseBill.data.content);
-      setTotalElementBill(responseBill.data.totalElement);
+      if(token) {
+        const responseCustomer = await axios.get(
+          `http://localhost:8080/api/v1/customer/information`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
+        const customerId = responseCustomer.data.id;
+  
+        const responseReservation = await axios.get(
+          `http://localhost:8080/api/v1/customer/reservation/${customerId}?page=${pageReservation}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
+        setReservation(responseReservation.data.content);
+        setTotalElementReservation(responseReservation.data.totalElement);
+  
+        const responseBill = await axios.get(
+          `http://localhost:8080/api/v1/customer/bill/${customerId}?page=${pageBill}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
+        setBill(responseBill.data.content);
+        setTotalElementBill(responseBill.data.totalElement);
+      } else {
+        navigate("/sign-in")
+      }
     } catch (error) {
       HandleHttpError(error, navigate, "/sign-in");
     }

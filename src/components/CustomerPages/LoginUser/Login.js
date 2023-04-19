@@ -1,65 +1,97 @@
+import { Button, Card, Form, Input } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
-function Login({
-  handleSubmit,
-  userRef,
-  errRef,
-  errMsg,
-  username,
-  password,
-  setUsername,
-  setPassword,
-}) {
+function Login({ handleSubmit, errMsg }) {
+  const onFinish = (values) => {
+    handleSubmit(values.username, values.Password);
+  };
+
+  const onFinishFailed = () => {
+    toast.error(errMsg, {
+      draggable: true,
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
   return (
     <>
-      <section className="section__register">
-        <p
-          ref={errRef}
-          className={errMsg ? "errmsg" : "offscreen"}
-          aria-live="assertive"
+      <Card
+        title={<h1>Login</h1>}
+        bordered={true}
+        style={{
+          width: "30%",
+          border: "solid",
+          margin: "0 auto",
+          marginTop: "20px",
+        }}
+      >
+        <Form
+          name="basic"
+          labelCol={{
+            span: 6,
+          }}
+          wrapperCol={{
+            span: 18,
+          }}
+          style={{
+            maxWidth: 600,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
         >
-          {errMsg}
-        </p>
-        <h1>Sign In</h1>
-        <form className="form__register" onSubmit={handleSubmit}>
-          <label className="label__register" htmlFor="username">
-            <b>Username:</b>
-          </label>
-          <input
-            className="input__resigter"
-            type="text"
-            id="username"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            required
-          />
-          <label className="label__register" htmlFor="password">
-            <b>Password:</b>
-          </label>
-          <input
-            className="input__resigter"
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-          />
-          <button className="button__register button__form input__resigter">
-            Sign In
-          </button>
-        </form>
-        <div>
-          <span className="line" style={{ float: "left" }}>
-            <Link to="/send-mail">Change password</Link>
-          </span>
-          <span className="line" style={{ float: "right" }}>
-            <Link to="/sign-up">Sign Up</Link>
-          </span>
-        </div>
-      </section>
+          <Form.Item
+            label="Username"
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Password"
+            name="Password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Password!",
+              },
+              {
+                type: "password",
+                message: "Please enter a valid Password!",
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit" style={{ width: "50%" }}>
+              Login
+            </Button>
+          </Form.Item>
+          <Form.Item>
+            <span style={{ float: "left" }}>
+              <Link to="/send-mail">Change password</Link>
+            </span>
+            <span style={{ float: "right" }}>
+              <Link to="/sign-up">Sign Up</Link>
+            </span>
+          </Form.Item>
+        </Form>
+      </Card>
     </>
   );
 }

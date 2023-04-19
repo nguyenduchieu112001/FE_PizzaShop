@@ -69,6 +69,9 @@ function History({
       <Card
         style={{
           width: "100%",
+          position: "absolute",
+          top: 80,
+          left: 0,
         }}
         tabList={tabList}
         activeTabKey={activeTabKey1}

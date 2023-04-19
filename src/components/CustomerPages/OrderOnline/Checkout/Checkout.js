@@ -54,14 +54,14 @@ function Checkout({
       <div className="completeForm">
         <div className="completeForm__container">
           <div className="completeForm__container-form">
-            <h1>Checkout</h1>
+            <h1 style={{color: "red"}}>Checkout</h1>
             <form onSubmit={() => handleSubmit(bill)}>
               <div className="checkout__block">
                 <h2>1. Delivery Method</h2>
-                <p className="pickup">Pick up form</p>
-                <p className="p_content">aaaaaaaaaa</p>
-                <p className="pickup">Pick up form</p>
-                <p className="p_content">aaaaaaaaaa</p>
+                <h5 className="pickup"><b>Pickup from</b></h5>
+                <p className="p_content">39 Phạm Thị Liên, Kim Long, Huế</p>
+                <h5 className="pickup"><b>Pickup time</b></h5>
+                <p className="p_content">Sớm nhất có thể (trong 15p)</p>
               </div>
               <div className="checkout__block">
                 <h2>2. Contact Information</h2>
