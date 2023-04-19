@@ -1,0 +1,147 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+body {
+  min-height: 100vh;
+}
+
+.completeForm {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    margin-top: 50px;
+}
+
+.completeForm__container {
+    width: 1000px;
+    min-height: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.completeForm__container-form {
+    width: 500px;
+}
+
+.completeForm__container-form h1 {
+    font-size: 2rem;
+    margin: 1rem 0 2rem 0;
+}
+
+.completeForm__container-detail {
+    width: 450px;
+}
+
+.reserveBtn__checkout {
+    height: 40px;
+    width: 100%;
+    padding: 0 8px;
+    border: 1px solid rgb( 200,55,39 );
+    background-color: transparent;
+    color: rgb( 200,55,39 );
+    transition: .3s;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.reserveBtn__checkout:hover {
+    background-color: rgb( 200,55,39 );
+    color: #fff;
+}
+
+.detail {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #e7e7e7;
+    padding: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.detail h1 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.back__page {
+    color: rgb( 200,55,39 );
+    margin: 2rem 0;
+    display: block;
+    text-align: right;
+}
+
+.checkout__block {
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #e7e7e7;
+    margin-top: 1rem;
+}
+
+.p_content {
+    margin-left: 10%;
+    text-align: left;
+}
+
+.checkout__block h2 {
+    font-size:1.5rem;
+    margin-bottom: 1rem;
+    /* margin-right: 50%; */
+}
+
+.pickup {
+    margin-top: .5rem;
+    margin-right: 65%;
+}
+.radioButon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+input[type="radio"] {
+    color: #000;
+}
+.order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .5rem;
+}
+.order__name {
+    text-align: left;
+}
+
+.order_price {
+    text-align: right;
+}
+
+.total__name {
+    font-size: 1.1rem;
+}
+
+.total {
+    margin-top: .5rem;
+}
+
+.total-border {
+    border-top: 1px solid #e7e7e7;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.total_sum {
+    font-size: 1.4rem;
+}

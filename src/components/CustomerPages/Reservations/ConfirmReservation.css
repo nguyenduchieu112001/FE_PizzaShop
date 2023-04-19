@@ -1,0 +1,122 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+body {
+  min-height: 100vh;
+}
+
+.completeForm {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.completeForm__container {
+  width: 1000px;
+  min-height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.completeForm__container-form {
+  width: 500px;
+}
+
+.completeForm__container-form h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.completeForm__container-form h3 {
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.completeForm__container-detail {
+  width: 400px;
+}
+
+.form__complete-input {
+  display: block;
+  width: 240px;
+  height: 40px;
+  padding-left: 12px;
+  margin-top: 4px;
+}
+
+.container-form input[type="text"],
+.container-form input[type="number"] {
+  outline: none;
+  border: 1px solid #e7e7e7;
+}
+.container-form input[type="text"]:focus,
+.container-form input[type="number"]:focus {
+  border-color: #000;
+}
+
+label {
+  margin-bottom: 12px;
+}
+
+.w-fully {
+  display: block;
+  width: 500px;
+}
+
+.container-form {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.reserveBtn__confirm {
+  height: 40px;
+  width: 100%;
+  padding: 0 8px;
+  border: 1px solid rgb(200, 55, 39);
+  background-color: transparent;
+  color: rgb(200, 55, 39);
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 0 4px;
+  margin-top: 26px;
+}
+
+.reserveBtn__confirm:hover {
+  background-color: rgb(200, 55, 39);
+  color: #fff;
+}
+
+.detail {
+  width: 100%;
+  min-height: 100px;
+  background-color: #e7e7e7;
+  padding: 1rem;
+  margin-bottom: 8px;
+}
+
+.detail-bottom h6 {
+  margin: 0.5rem 0 1rem 0;
+}
+
+.detail-bottom a {
+  color: #707070;
+  display: block;
+  margin-top: 1.5rem;
+}

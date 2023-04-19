@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=IBM+Plex+Sans:wght@400;700&family=Oswald:wght@200;400;700&display=swap');
+
+
+:root {
+    --clr-white: #fff;
+    --clr-secondary:    #DC3727;
+    --clr-black: #222;
+    --ff-primary: 'IBM Plex Sans', sans-serif;
+    --ff-secondary: 'Oswald', sans-serif;
+    --transition: all 0.3s linear;
+    --spacing: 0.125rem;
+    --radius: 0.5rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --max-width: 1170px;
+    --fixed-width: 630px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; 
+    scroll-padding-top: 66px;
+}
+
+body {
+    font-family: var(--ff-secondary);
+    color: var(--clr-black);
+    background-color: var(--clr-white);
+    line-height: 1;
+    font-weight: 200;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    padding: 1rem;
+    width: 100%;
+    height: 66px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: var(--dark-shadow);
+    z-index: 999;
+    background-color: var(--clr-white);
+}
+
+h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 35px;
+}
+
+.nav-center {
+    width: 90vw;
+    max-width: var(--max-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li a {
+    color: var(--clr-secondary);
+    font-size: 1.1rem;
+    margin: 0 1.25rem;
+    transition: var(--transition);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.nav-links li a:hover {
+    color: var(--clr-black);
+}
+
+.nav-links li a.active {
+    color: var(--clr-black);
+}
+
+.nav-right a {
+    color: var(--clr-secondary);
+    margin-left: 0.5rem;
+    letter-spacing: var(--spacing);
+}
+
+main {
+    padding-top: 66px;
+}
+
+.section__home {
+    width: 90vw;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.wrap {
+    display: flex;
+    position: relative;
+}
+
+.ele-50 {
+    width: 50%;
+    position: relative;
+}
+
+.ele-50 .wrap-logo {
+    position: static;
+    display: grid;
+    height: auto;
+    width: 100%;
+    min-height: 843px;
+    grid-template-rows: 560px 100px 1fr;
+}
+
+.ele-50 .logo {
+    position: relative;
+
+}
+
+.ele-50 .logo img {
+    position: relative;
+    width: 240px;
+    height: 290px;
+    object-fit: cover;
+    left: 5px;
+    top: 169px;
+    z-index: -1;
+}
+
+.ele-50 .logo span {
+    position: absolute;
+    letter-spacing: var(--spacing);
+    font-size: 85px;
+    color: var(--clr-secondary);
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+.ele-50 div p {
+    font-size: 18px;
+    letter-spacing: var(--spacing);
+    font-family: 'EB Garamond', serif;
+    line-height: 1.6;
+}
+
+.btn__home {
+    padding: 10px 34px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.ele-50 div a.menu {
+    border: 1px solid var(--clr-secondary);
+    color: var(--clr-secondary);
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.ele-50 .wrap-content a.more {
+    border: 1px solid var(--clr-black);
+    color: var(--clr-black);
+    transition: var(--transition);
+    display: inline-block;
+    font-weight: 400;
+}
+
+.ele-50 div a.menu:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+}
+
+.ele-50 .wrap-content a.more:hover {
+    color: var(--clr-secondary);
+}
+
+.ele-50 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ele-50 .img-fixed {
+    background-image: url(https://resizer.otstatic.com/v2/photos/xlarge/3/31299631.png);
+    background-attachment: fixed;
+    background-repeat: round;
+    background-size: contain;
+    height: 100%;
+}
+
+.ele-50 .person {
+    padding: 4rem 2rem;
+}
+
+.bg-red {
+    background-color: #C83727;
+}
+
+.wrap-content {
+    padding: 37px;
+    min-height: 795px;
+}
+
+.ele-50 .wrap-content h2 {
+    margin: 115px 0 58px 42px;
+    color: var(--clr-secondary);
+    line-height: 1.6;
+}
+
+.ele-50 .wrap-content p {
+    margin: 0 0 69px 42px;
+    text-align: justify;
+    letter-spacing: normal;
+}
+
+.ele-50 .wrap-content a {
+    margin-left: 42px;
+}
+
+.wrap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.ele-50-grid {
+    height: 394.5px;
+}
+
+.ele-50-grid img {
+    width: 100%;
+    min-height: 394.5px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mt-85 {
+    margin-top: 85px;
+}
+
+.wrap-content-grid {
+    height: 100%;
+    padding: 70px;
+    line-height: 1.6;
+    font-family: 'EB Garamond', serif;
+
+}
+
+.ele-50-grid h2 {
+    color: var(--clr-secondary);
+    margin: 40px 0 20px 20px;
+}
+
+.ele-50-grid p {
+    font-size: 20px;
+    margin-left: 20px;
+    font-weight: 400;
+}
+
+.wrap-form {
+    text-align: center;
+    padding: 100px 75px 50px 75px;
+    color: var(--clr-white);
+    font-family: var(--ff-primary);
+}
+
+.form-title {
+    margin-bottom: 40px;
+}
+
+#reservations form {
+    display: flex;
+    align-items: flex-end;
+}
+
+.wrap-input {
+    display: flex;
+}
+
+label {
+    text-align: start;
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    margin-right: 10px;
+}
+/* Contact Us */
+.wrap-form-contact {
+    max-width: var(--fixed-width);
+    margin: 0 auto;
+    font-family: 'EB Garamond', serif;
+}
+
+.form-contact-info {
+    margin-bottom: 37px;
+}
+.form-contact-info  h2, 
+.form-contact-info > p {
+    text-align: center;
+    margin-bottom: 37px;
+}
+
+.form-contact-info p {
+    font-size: 20px;
+}
+
+.form-contact-info h2 {
+    color: var(--clr-secondary);
+    line-height: 1.3;
+    margin-bottom: 37px;
+}
+
+.contact-info-content {
+    display: flex;
+}
+
+.open-hours {
+    flex: 70%;
+}
+
+.contact-info {
+    flex: 30%;
+}
