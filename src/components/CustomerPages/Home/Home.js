@@ -54,13 +54,17 @@ function Home() {
                   <br />
                   Been Cooking for Years
                 </h2>
-                <p>
-                  I'm a paragraph. Click here to add your own text and edit me.
-                  It’s easy. Just click “Edit Text” or double click me to add
-                  your own content and make changes to the font. Feel free to
-                  drag and drop me anywhere you like on your page. I’m a great
-                  place for you to tell a story and let your users know a little
-                  more about you.
+                <p style={{ fontStyle: "italic", textIndent: "30px" }}>
+                  Là một tầm nhìn đã được đun nấu trong tâm hồn, được chăm sóc
+                  bằng thời gian và kiên nhẫn, và được kích thích bởi đam mê và
+                  quyết tâm. Đây là một giấc mơ đã được chế biến cẩn thận thông
+                  qua kinh nghiệm, sáng tạo và niềm tin không dao động. Giống
+                  như một món ăn ngon cần thời gian và công sức để chuẩn bị,
+                  giấc mơ này đã được ướp chua, phát triển hương vị và độ phức
+                  tạp, và giờ đây đã sẵn sàng được đưa ra thế giới. Đây là một
+                  kết tinh của công việc chăm chỉ, sự kiên trì và tận tụy, và
+                  đại diện cho sự hoàn thành của ước mơ từ lâu trong trái tim và
+                  tâm trí.
                 </p>
               </div>
             </div>
