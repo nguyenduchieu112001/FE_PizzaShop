@@ -183,7 +183,7 @@ const Register = ({ errMsg, handleSubmit }) => {
               </Form.Item>
             </Col>
             <Col span={12}>
-              <Form.Item>
+              <Form.Item style={{ textAlign: "right" }}>
                 <Button
                   type="primary"
                   htmlType="submit"
