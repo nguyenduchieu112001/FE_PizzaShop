@@ -55,7 +55,7 @@ function PayPalAPI({ numPeople, selectedDate, selectedHour }) {
         draggable: true,
         position: toast.POSITION.TOP_RIGHT,
       });
-      navigate("/history")
+      navigate("/information")
     } catch (error) {
       HandleHttpError(error, navigate, "/sign-in");
     }

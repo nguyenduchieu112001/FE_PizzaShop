@@ -1,19 +1,33 @@
 import React from "react";
 import "./ConfirmReservation.css";
 import NavBar from "../Home/NavBar";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PayPalAPI from "./PayPalAPI";
 import { ImLocation2 } from "react-icons/im";
 import { AiFillCalendar, AiFillClockCircle } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
+import { Helmet } from "react-helmet";
+import { toast } from "react-toastify";
 
 function ConfirmReservation({ customerData, handleReservationClick }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const numPeople = location.state && location.state.numPeople;
   const selectedDate = location.state && location.state.selectedDate;
   const selectedHour = location.state && location.state.selectedHour;
+
+  if (location.state === null) {
+    toast.error(`Bạn nên chọn số lượng người, ngày giờ trước!`, {
+      draggable: true,
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    navigate("/home");
+  }
   return (
     <>
+      <Helmet>
+        <title>Checkout Reservation</title>
+      </Helmet>
       <NavBar />
       <div className="completeForm">
         <div className="completeForm__container">

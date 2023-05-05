@@ -15,6 +15,7 @@ import ProductType from "./ProductType";
 import Paginations from "../layout/Paginations";
 import Search from "antd/es/input/Search";
 import { SearchOutlined } from "@material-ui/icons";
+import { Helmet } from "react-helmet";
 
 function ProductTypes({
   productTypes,
@@ -41,6 +42,9 @@ function ProductTypes({
         textAlign: "center",
       }}
     >
+      <Helmet>
+        <title>Product Types</title>
+      </Helmet>
       <Container>
         <div className="my-1">
           <h1>
@@ -63,7 +67,12 @@ function ProductTypes({
             <Button
               onClick={handleShow}
               className="btn btn-outline-primary"
-              style={{ float: "right", color: "#fff", display: "flex", alignItems: "center" }}
+              style={{
+                float: "right",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <MdAddCircle className="mx-2" />
               Add Product Type

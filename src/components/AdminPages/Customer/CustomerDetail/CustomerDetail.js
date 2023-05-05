@@ -1,14 +1,14 @@
-import { Card, Table } from "antd";
-import React from "react";
-import { useState } from "react";
+import { Card, Modal, Table } from "antd";
+import React, { useState } from "react";
 import DataReservation from "./DataReservation";
-import ColumnsReservation from "./ColumnsReservation";
-import NavBar from "../Home/NavBar";
 import DataBill from "./DataBill";
+import ColumnsReservation from "./ColumnsReservation";
 import ColumnsBill from "./ColumnsBill";
+import { Button } from "react-bootstrap";
+import { BsFillInfoCircleFill } from "react-icons/bs";
 import Detail from "./Detail";
 
-function History({
+function CustomerDetail({
   reservation,
   bill,
   handlePageBillChange,
@@ -26,6 +26,9 @@ function History({
       tab: "Bills",
     },
   ];
+  const [showDetail, setShowDetail] = useState(false);
+  const handleShowDetail = () => setShowDetail(!showDetail);
+  const handleCloseDetail = () => setShowDetail(false);
   const [show, setShow] = useState(false);
   const [billDetail, setBillDetail] = useState([]);
 
@@ -65,23 +68,39 @@ function History({
   };
   return (
     <>
-      <NavBar />
-      <Card
-        style={{
-          width: "100%",
-          position: "absolute",
-          top: 80,
-          left: 0,
-        }}
-        tabList={tabList}
-        activeTabKey={activeTabKey1}
-        onTabChange={onTab1Change}
+      <Button
+        onClick={handleShowDetail}
+        className="btn btn-outline-primary"
+        style={{ color: "#fff" }}
       >
-        {contentList[activeTabKey1]}
-      </Card>
-      <Detail show={show} CloseModal={CloseModal} billDetail={billDetail} />
+        <BsFillInfoCircleFill className="mx-2" />
+        Detail
+      </Button>
+
+      <Modal
+        title={
+          <h1>
+            <b>Customer's History</b>
+          </h1>
+        }
+        open={showDetail}
+        onCancel={handleCloseDetail}
+        onOk={handleCloseDetail}
+        okButtonProps={{className:"bg-[#1677ff]"}}
+        width={1000}
+      >
+        <Card
+          className="table-striped shadow"
+          tabList={tabList}
+          activeTabKey={activeTabKey1}
+          onTabChange={onTab1Change}
+        >
+          {contentList[activeTabKey1]}
+        </Card>
+        <Detail show={show} CloseModal={CloseModal} billDetail={billDetail} />
+      </Modal>
     </>
   );
 }
 
-export default History;
+export default CustomerDetail;

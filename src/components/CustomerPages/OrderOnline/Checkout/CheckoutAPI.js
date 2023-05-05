@@ -13,16 +13,20 @@ function CheckoutAPI() {
   const fetchData = async () => {
     try {
       if (token) {
-        const response = await axios.get(
-          `http://localhost:8080/api/v1/customer/information`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true,
-          }
-        );
-        setCustomer(response.data);
+        if (cartItems !== []) {
+          const response = await axios.get(
+            `http://localhost:8080/api/v1/customer/information`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+              withCredentials: true,
+            }
+          );
+          setCustomer(response.data);
+        } else {
+          navigate("/order");
+        }
       } else {
         navigate("/sign-in");
       }

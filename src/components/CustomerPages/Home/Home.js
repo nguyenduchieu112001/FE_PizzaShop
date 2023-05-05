@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 import "../Reservations/Reservation.css";
 import "./Home.css";
 import ReservationAPI from "../Reservations/ReservationAPI";
+import { Helmet } from "react-helmet";
 
 function Home() {
   return (
     <div className="restaurant">
+      <Helmet>
+        <title>ZIA SONIA</title>
+      </Helmet>
       <NavBar/>
       <main>
         <section className="section__home">
@@ -27,7 +31,7 @@ function Home() {
                   <p>There is a Place like Home</p>
                 </div>
                 <div>
-                  <Link to="/menu" className="btn__home menu">
+                  <Link to="/order" className="btn__home menu">
                     See Menu
                   </Link>
                 </div>
@@ -129,7 +133,7 @@ function Home() {
                 </div>
                 <div className="contact-info">
                   <p>nguyenduchieu112001@gmail.com</p>
-                  <p>0912-7662-685</p>
+                  <p>0912-762-685</p>
                 </div>
               </div>
             </div>

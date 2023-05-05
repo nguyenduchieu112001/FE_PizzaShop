@@ -5,7 +5,7 @@ import React from "react";
 import { Container, Table } from "react-bootstrap";
 import Paginations from "../layout/Paginations";
 import Bill from "./Bill";
-
+import { Helmet } from "react-helmet";
 function ListBills({
   bills,
   fetchBill,
@@ -26,6 +26,9 @@ function ListBills({
         textAlign: "center",
       }}
     >
+      <Helmet>
+        <title>Bills</title>
+      </Helmet>
       <Container>
         <div className="py-3">
           <h1>

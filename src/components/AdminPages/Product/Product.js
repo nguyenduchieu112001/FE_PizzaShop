@@ -36,7 +36,7 @@ const Product = ({ product, index, fetchData }) => {
         )}
       </th>
       <th scope="row">{product.productName}</th>
-      <th scope="row">{product.price}</th>
+      <th scope="row">{product.price.toLocaleString('vi-VN')}</th>
       <th scope="row" style={{ textAlign: "left" }}>
         {product.description}
       </th>

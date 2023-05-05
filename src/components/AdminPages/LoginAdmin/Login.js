@@ -1,13 +1,11 @@
 import React from "react";
 import { Button, Card, Form, Input } from "antd";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
-function Login({
-  handleSubmit,
-  errMsg,
-}) {
+function Login({ handleSubmit, errMsg }) {
   const onFinish = (values) => {
-    handleSubmit(values.username, values.Password)
+    handleSubmit(values.username, values.Password);
   };
 
   const onFinishFailed = () => {
@@ -18,6 +16,9 @@ function Login({
   };
   return (
     <>
+      <Helmet>
+        <title>Login | Admin</title>
+      </Helmet>
       <Card
         title={<h1>Login</h1>}
         bordered={true}
@@ -80,7 +81,7 @@ function Login({
               span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" className="bg-[#1677ff]">
               Login
             </Button>
           </Form.Item>

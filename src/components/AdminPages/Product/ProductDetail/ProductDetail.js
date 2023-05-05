@@ -57,7 +57,7 @@ function ProductDetail({
         </div>
       </Dropdown.Item>
 
-      <Modal open={show} onCancel={handleClose} onOk={handleClose}>
+      <Modal open={show} onCancel={handleClose} onOk={handleClose} okButtonProps={{className:"bg-[#1677ff]"}}>
         <div>
           <Button
             onClick={handleModalShow}

@@ -5,7 +5,7 @@ import React from "react";
 import { Container, Table } from "react-bootstrap";
 import Paginations from "../layout/Paginations";
 import Reservation from "./Reservation";
-
+import { Helmet } from "react-helmet";
 function ListReservations({
   reservations,
   fetchData,
@@ -26,6 +26,9 @@ function ListReservations({
         textAlign: "center",
       }}
     >
+      <Helmet>
+        <title>Reservations</title>
+      </Helmet>
       <Container>
         <div className='"py-3'>
           <h1>

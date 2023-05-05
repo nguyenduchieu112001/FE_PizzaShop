@@ -1,5 +1,6 @@
-import { Button, Card, Form, Input } from "antd";
+import { Button, Card, Col, Form, Input, Row } from "antd";
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -15,16 +16,19 @@ function Login({ handleSubmit, errMsg }) {
     });
   };
   return (
-    <>
+    <div className="pt-[100px]">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <Card
-        title={<h1>Login</h1>}
+        title={<h1 className="text-center">Đăng nhập</h1>}
         bordered={true}
         style={{
-          width: "30%",
+          width: "500px",
           border: "solid",
           margin: "0 auto",
-          marginTop: "20px",
         }}
+        className="bg-[rgba(173,178,181,.5)]"
       >
         <Form
           name="basic"
@@ -78,21 +82,28 @@ function Login({ handleSubmit, errMsg }) {
               span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit" style={{ width: "50%" }}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ width: "50%" }}
+              className="bg-[#1677ff]"
+            >
               Login
             </Button>
           </Form.Item>
           <Form.Item>
-            <span style={{ float: "left" }}>
-              <Link to="/send-mail">Change password</Link>
-            </span>
-            <span style={{ float: "right" }}>
-              <Link to="/sign-up">Sign Up</Link>
-            </span>
+            <Row className="flex">
+              <Col span={12}>
+                <Link to="/send-mail">Quên mật khẩu</Link>
+              </Col>
+              <Col span={12} className="pl-[30%]">
+                <Link to="/sign-up">Đăng ký</Link>
+              </Col>
+            </Row>
           </Form.Item>
         </Form>
       </Card>
-    </>
+    </div>
   );
 }
 

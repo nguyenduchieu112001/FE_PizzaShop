@@ -2,9 +2,8 @@ import React from "react";
 import { Container, Dropdown, Nav, Navbar, NavbarBrand } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { animateScroll, scroller } from "react-scroll";
-import { BsFillPersonFill, BsFillPersonPlusFill } from "react-icons/bs";
+import { BsFillPersonFill, BsFillPersonPlusFill, BsPersonSquare } from "react-icons/bs";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
-import CustomerInformation from "./CustomerInformation";
 
 function NavBar() {
   const token = localStorage.getItem("token");
@@ -13,6 +12,9 @@ function NavBar() {
     localStorage.clear();
     navigate("/");
   };
+  const handleShow = () => {
+    navigate("/information")
+  }
   const handleReservationClick = (reservation) => {
     navigate("/");
     scroller.scrollTo(reservation, {
@@ -30,11 +32,6 @@ function NavBar() {
       offset: -100, // Độ lệch so với đích đến (pixel)
     });
   };
-
-  // useEffect(() => {
-  //   handleReservationClick("reservation");
-  //   handleContactClick("contact");
-  // }, []);
 
   return (
     <>
@@ -64,14 +61,6 @@ function NavBar() {
               RESERVATIONS
             </Nav.Link>
             <Link
-              to="/menu"
-              className="nav-link mx-3"
-              style={{ color: "#dc3727" }}
-              onClick={() => animateScroll.scrollToTop()}
-            >
-              MENU
-            </Link>
-            <Link
               to="/order"
               className="nav-link mx-3"
               style={{ color: "#dc3727" }}
@@ -88,13 +77,6 @@ function NavBar() {
             >
               CONTACT
             </Nav.Link>
-            <Link
-              to="/history"
-              className="nav-link mx-3"
-              style={{ color: "#dc3727" }}
-            >
-              HISTORY
-            </Link>
           </Nav>
           {token ? (
             <Dropdown>
@@ -103,7 +85,15 @@ function NavBar() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <CustomerInformation />
+                <Dropdown.Item onClick={handleShow}>
+                  <div style={{ display: "flex" }}>
+                    <BsPersonSquare
+                      className="mx-4"
+                      style={{ fontSize: "150%" }}
+                    />
+                    Infor
+                  </div>
+                </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>
                   <div style={{ display: "flex" }}>
                     <FiLogOut className="mx-4" style={{ fontSize: "150%" }} />

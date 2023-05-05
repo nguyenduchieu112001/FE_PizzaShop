@@ -46,6 +46,7 @@ function ModalEdit({
       open={showEditModal}
       onCancel={handleEditModalClose}
       onOk={() => handleEditProductSize(selectedRecord)}
+      okButtonProps={{className: "bg-[#1677ff]"}}
     >
       <div className="mb-3">
         <Label sm={5}>Size</Label>

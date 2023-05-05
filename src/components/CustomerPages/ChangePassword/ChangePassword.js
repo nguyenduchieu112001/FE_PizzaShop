@@ -27,6 +27,8 @@ function ChangePassword({ errMsg, handleSubmit }) {
         style={{
           width: "40%",
           border: "solid",
+          margin: "0 auto",
+          marginTop: "20px",
         }}
       >
         <Form

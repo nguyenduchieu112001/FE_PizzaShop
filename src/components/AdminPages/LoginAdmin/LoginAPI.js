@@ -12,7 +12,6 @@ function LoginAPI() {
   const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = async (username, password) => {
-
     try {
       const response = await axios.post(
         "http://localhost:8080/api/v1/admin/login",
@@ -35,7 +34,7 @@ function LoginAPI() {
         draggable: true,
         position: toast.POSITION.TOP_RIGHT,
       });
-      navigate("/admin/products");
+      navigate("/admin/home");
     } catch (error) {
       if (!error?.response) {
         setErrMsg("No Server Response");
@@ -54,10 +53,7 @@ function LoginAPI() {
   };
   return (
     <>
-      <Login
-        handleSubmit={handleSubmit}
-        errMsg={errMsg}
-      />
+      <Login handleSubmit={handleSubmit} errMsg={errMsg} />
     </>
   );
 }

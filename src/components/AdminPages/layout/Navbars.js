@@ -25,7 +25,7 @@ const Navbars = () => {
         variant="dark"
       >
         <Container>
-          <NavbarBrand as={Link} to="/admin/products">
+          <NavbarBrand as={Link} to="/admin/home">
             PizzaShop
           </NavbarBrand>
           <Nav className="me-auto">
@@ -43,6 +43,9 @@ const Navbars = () => {
             </Link>
             <Link to="/admin/bills" className="nav-link">
               Bills
+            </Link>
+            <Link to="/admin/users" className="nav-link">
+              Users
             </Link>
           </Nav>
           <Navbar.Text>

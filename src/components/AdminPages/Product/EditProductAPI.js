@@ -47,6 +47,7 @@ function EditProductAPI({ product, handleClose, fetchData }) {
         setShowAlert(true);
         setAlertType("danger");
       }
+      HandleHttpError(error, navigate, "/admin")
     }
   };
 

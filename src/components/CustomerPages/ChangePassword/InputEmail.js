@@ -24,6 +24,8 @@ function InputEmail({
         style={{
           width: "30%",
           border: "solid",
+          margin: "0 auto",
+          marginTop: "20px",
         }}
       >
         <Form

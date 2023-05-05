@@ -15,6 +15,7 @@ import AddProductAPI from "./AddProductAPI";
 import Product from "./Product";
 import { SearchOutlined } from "@material-ui/icons";
 import Search from "antd/es/input/Search";
+import { Helmet } from "react-helmet";
 
 function ListProducts({
   products,
@@ -41,6 +42,9 @@ function ListProducts({
         textAlign: "center",
       }}
     >
+      <Helmet>
+        <title>Products</title>
+      </Helmet>
       <Container>
         <div className="py-4">
           <h1>
@@ -53,17 +57,23 @@ function ListProducts({
             <div style={{ float: "left" }}>
               <Search
                 placeholder="Product Name"
-                enterButton={<SearchOutlined />}
+                enterButton
                 size="midle"
-                // suffix={<SearchOutlined />}
+                suffix={<SearchOutlined />}
                 onSearch={handleSearch}
+                
               />
             </div>
 
             <Button
               onClick={handleShow}
               className="btn btn-outline-primary"
-              style={{ float: "right", color: "#fff", display: "flex", alignItems: "center" }}
+              style={{
+                float: "right",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <MdAddCircle className="mx-2" />
               Add Product
@@ -73,7 +83,9 @@ function ListProducts({
             <thead>
               <tr style={{ backgroundColor: "#007acc", color: "#fff" }}>
                 <th scope="col">#</th>
-                <th scope="col" width="15%">Product</th>
+                <th scope="col" width="15%">
+                  Product
+                </th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Default Price</th>
                 <th scope="col">Description</th>
@@ -113,7 +125,6 @@ function ListProducts({
         </div>
       </Container>
     </div>
-    
   );
 }
 

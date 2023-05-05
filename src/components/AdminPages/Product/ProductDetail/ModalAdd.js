@@ -44,7 +44,7 @@ function ModalAdd({
       );
       handleModalClose();
       fetchData();
-      toast.success("Update product size successful!", {
+      toast.success("Add product size successful!", {
         draggable: true,
         position: toast.POSITION.TOP_RIGHT,
       });

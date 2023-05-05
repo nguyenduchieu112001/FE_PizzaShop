@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 export const HandleHttpError = (error, navigate, redirectPath) => {
-  if (error.response?.status === 401) {
+  if (error.response?.status === 401 || error.response?.status === 403) {
     navigate(redirectPath);
     localStorage.clear();
   }
