@@ -1,14 +1,12 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import AuthContext from "../../../context/AuthProvider";
 import Login from "./Login";
 
 function LoginAPI() {
   const navigate = useNavigate();
 
-  const { setAuth } = useContext(AuthContext);
   const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = async (username, password) => {
@@ -29,7 +27,6 @@ function LoginAPI() {
       });
       localStorage.setItem("token", response?.data.message);
       localStorage.setItem("name", name?.data.message);
-      setAuth({ username, password });
       toast.success(`Xin chào ${name?.data.message}!`, {
         draggable: true,
         position: toast.POSITION.TOP_RIGHT,

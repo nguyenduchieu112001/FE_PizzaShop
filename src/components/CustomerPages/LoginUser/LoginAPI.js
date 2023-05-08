@@ -1,14 +1,13 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import AuthContext from "../../../context/AuthProvider";
 import Login from "./Login";
 
 function LoginAPI() {
   const navigate = useNavigate();
 
-  const { setAuth } = useContext(AuthContext);
+  // const { setAuth } = useContext(AuthContext);
   const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = async (username, password) => {
@@ -23,7 +22,6 @@ function LoginAPI() {
       );
 
       localStorage.setItem("token", response?.data.message);
-      setAuth({ username, password });
       toast.success(`Login successful!`, {
         draggable: true,
         position: toast.POSITION.TOP_RIGHT,
