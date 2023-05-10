@@ -58,6 +58,7 @@ function ModalAdd({
       open={showModal}
       onOk={() => handleAddProductSize()}
       onCancel={handleModalClose}
+      okButtonProps={{className:"bg-[#1677ff]"}}
     >
       <div className="mb-3">
         <Label sm={5}>Product Name</Label>
