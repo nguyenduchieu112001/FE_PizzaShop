@@ -13,6 +13,11 @@ const ColumnsBill = (showModal, setBillDetail) => [
     key: "sur",
   },
   {
+    title: "code",
+    dataIndex: "billCode",
+    key: "billCode",
+  },
+  {
     title: "Ngày tạo",
     dataIndex: "createdAt",
     key: "createdAt",
