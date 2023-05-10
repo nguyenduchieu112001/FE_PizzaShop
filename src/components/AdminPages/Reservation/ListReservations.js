@@ -1,11 +1,11 @@
 import { SearchOutlined } from "@material-ui/icons";
-import { Space } from "antd";
-import Search from "antd/es/transfer/search";
+import Search from "antd/es/input/Search";
 import React from "react";
 import { Container, Table } from "react-bootstrap";
 import Paginations from "../layout/Paginations";
 import Reservation from "./Reservation";
 import { Helmet } from "react-helmet";
+import { Space } from "antd";
 function ListReservations({
   reservations,
   fetchData,
@@ -43,7 +43,7 @@ function ListReservations({
           <Space direction="vertical" style={{ float: "right" }}>
             <Search
               placeholder="nhập code để tìm kiếm"
-              enterButton="Search"
+              enterButton
               size="large"
               suffix={<SearchOutlined />}
               onSearch={handleSearch}

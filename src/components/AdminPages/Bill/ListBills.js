@@ -1,6 +1,6 @@
 import { SearchOutlined } from "@material-ui/icons";
 import { Space } from "antd";
-import Search from "antd/es/transfer/search";
+import Search from "antd/es/input/Search";
 import React from "react";
 import { Container, Table } from "react-bootstrap";
 import Paginations from "../layout/Paginations";
@@ -44,7 +44,7 @@ function ListBills({
           <Space direction="vertical" style={{ float: "right" }}>
             <Search
               placeholder="nhập code để tìm kiếm"
-              enterButton="Search"
+              enterButton
               size="large"
               suffix={<SearchOutlined />}
               onSearch={handleSearch}
@@ -54,6 +54,7 @@ function ListBills({
             <thead>
               <tr style={{ backgroundColor: "#007acc", color: "#fff" }}>
                 <th scope="col">#</th>
+                <th scope="col">Code</th>
                 <th scope="col">Created Date</th>
                 <th scope="col">Total</th>
                 <th scope="col">Status</th>
