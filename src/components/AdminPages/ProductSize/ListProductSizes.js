@@ -74,7 +74,7 @@ function ListProductSizes({
               }}
             >
               <MdAddCircle className="mx-2" />
-              Add Product Type
+              Add Product Size
             </Button>
           </div>
           <Table className="table table-striped border shadow">
