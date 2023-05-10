@@ -4,7 +4,7 @@ import Sider from "antd/es/layout/Sider";
 import { Content, Header } from "antd/es/layout/layout";
 import "./Information.css";
 import NavBar from "../Home/NavBar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CustomerInformation from "./CustomerInformation";
 import DataReservation from "./Reservation/DataReservation";
 import ColumnsReservation from "./Reservation/ColumnsReservation";
@@ -23,7 +23,9 @@ function Information({
   fetchData,
   setCustomer,
 }) {
-  const [selectedMenuItem, setSelectedMenuItem] = useState("1");
+  const location = useLocation();
+  const keyLocation = location.state && location.state.key
+  const [selectedMenuItem, setSelectedMenuItem] = useState(keyLocation ? keyLocation.toString() : "1");
   const handleMenuItemClick = (key) => {
     setSelectedMenuItem(key); // Cập nhật trạng thái item được chọn
   };
@@ -47,7 +49,7 @@ function Information({
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={selectedMenuItem}
             onClick={({ key }) => handleMenuItemClick(key)}
             items={[
               {
@@ -80,7 +82,6 @@ function Information({
             style={{
               margin: "24px 16px",
               padding: 24,
-              minHeight: 280,
               background: colorBgContainer,
             }}
           >

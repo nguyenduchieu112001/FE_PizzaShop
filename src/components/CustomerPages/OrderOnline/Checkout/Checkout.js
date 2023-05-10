@@ -46,7 +46,11 @@ function Checkout({
       });
       localStorage.removeItem("cartItems");
     }
-    navigate("/information");
+    navigate("/information", {
+      state: {
+        key: 3
+      }
+    });
   };
 
   return (
@@ -108,7 +112,11 @@ function Checkout({
                         position: toast.POSITION.TOP_RIGHT,
                       });
                       localStorage.removeItem("cartItems");
-                      navigate("/information");
+                      navigate("/information", {
+                        state: {
+                          key: 3
+                        }
+                      });
                     }}
                     onError={() => {
                       console.log("Error");

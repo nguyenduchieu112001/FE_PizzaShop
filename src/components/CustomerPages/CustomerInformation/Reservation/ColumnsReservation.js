@@ -29,7 +29,11 @@ const ColumnsReservation = [
       dataIndex: "partySize",
       key: "partySize",
     },
-  
+    {
+      title: "Trạng thái",
+      dataIndex: "reservationStatus",
+      key: "reservationStatus",
+    }
   ];
   
   export default ColumnsReservation;
