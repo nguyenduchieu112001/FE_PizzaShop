@@ -25,6 +25,7 @@ function Bill({ bill, index, fetchBill }) {
   return (
     <>
       <th scope="row">{index + 1}</th>
+      <th scope="row">{bill.billCode}</th>
       <th scope="row">{moment(bill.createdAt).format(`DD/MM/YYYY`)}</th>
       <th scope="row">{bill.total.toLocaleString('vi-VN')}</th>
       <th scope="row">
