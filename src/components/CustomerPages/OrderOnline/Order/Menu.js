@@ -1,3 +1,4 @@
+import { Typography } from "antd";
 import React from "react";
 
 function Menu({productSizes, productType, handleShow}) {
@@ -24,9 +25,14 @@ function Menu({productSizes, productType, handleShow}) {
                     <h5>
                       <b>{productSize.product.productName}</b>
                     </h5>
-                    <p style={{ textAlign: "left" }}>
+                    {/* <p style={{ textAlign: "left" }}>
                       {productSize.product.description}
-                    </p>
+                    </p> */}
+                    <Typography.Paragraph className="!text-left !break-all text-[15px]" ellipsis={{
+                      rows: 4
+                    }}>
+                      {productSize.product.description}
+                    </Typography.Paragraph>
                     <h5 className="card__price flex justify-center items-center text-red-400">
                       {productSize.product.price.toLocaleString("vi-VN")} VNĐ
                     </h5>

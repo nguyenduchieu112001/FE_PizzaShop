@@ -151,7 +151,7 @@ h2 {
 .ele-50 .img-fixed {
     background-image: url(https://resizer.otstatic.com/v2/photos/xlarge/3/31299631.png);
     background-attachment: fixed;
-    background-repeat: round;
+    background-repeat: space;
     background-size: contain;
     height: 100%;
 }

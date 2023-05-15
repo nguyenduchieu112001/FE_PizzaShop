@@ -17,7 +17,7 @@ function Cart({
   };
   return (
     <>
-      <div className="flex-1 transition-all max-w-[370px] bg-white border-[1px] border-[#222] self-start rounded sticky top-[75px] left-0 right-0 z-[100]">
+      <div className="flex-1 transition-all max-w-[370px] bg-white border-[#222] self-start sticky top-[100px] left-0 right-0 z-[100]">
         <div className="cart-header py-[13px] px-[20px] border-b border-[#dee2e6]">
           <h4 className="text-[20px]">
             <b className="text-2xl">
@@ -91,16 +91,11 @@ function Cart({
                         </span>
                       </div>
                     </div>
-                    <div style={{ display: "flex" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
                       <div className="px-[5px] pt-[10px] pb-[5px]">
                         Size: {item.productSize.size.name}
                       </div>
-                      <div className="px-[20px] pt-[10px] pb-[5px] bg-red-400">
-                        {/* <button
-                          onClick={() => handleRemoveCart(item.productSize.id)}
-                        >
-                          Remove
-                        </button> */}
+                      <div className="px-[20px] pt-[10px] pb-[5px]">
                         <ModalConfirm
                           id={item.productSize.id}
                           cartItems={cartItems}
@@ -115,16 +110,6 @@ function Cart({
           </div>
         </div>
         <div className="cart-footer p-[12px] text-[16px] flex border-t border-[#dee2e6] flex-col ">
-          {/* <div className="discount m-[4px]">
-            <div className="total flex justify-between items-center py-[5px]">
-              <span>Thành tiền</span>
-              <span className="text-right">{handleCalculatorSubtotal(cartItems).toLocaleString("vi-VN")} VNĐ</span>
-            </div>
-            <div className="flex justify-between items-center py-[5px]">
-              <span>Thuế</span>
-              <span className="text-right">44.000 ₫</span>
-            </div>
-          </div> */}
           <div className="m-[4px]">
             <div className="py-[5px] my-[8px] flex justify-between items-center">
               <span className="font-bold uppercase text-[#414042]">
@@ -136,12 +121,6 @@ function Cart({
               </span>
             </div>
             <div className="flex">
-              {/* <a
-                href="/"
-                className="w-full hover:text-white hover:bg-[#414042] h-[50px] leading-[46px] rounded-[5px] font-bold uppercase text-center mr-[5px] text-[#414042] border-[2px] border-[#414042]"
-              >
-                Xem giỏ hàng
-              </a> */}
               <Link
                 to={cartItems.length > 0 ? token ? "/checkout": "/auth" : "#"}
                 className="w-full hover:text-white hover:bg-[#f15e22] h-[50px] leading-[46px] rounded-[5px] font-bold uppercase text-center text-[#f15e22] border-[2px] border-[#f15e22]"

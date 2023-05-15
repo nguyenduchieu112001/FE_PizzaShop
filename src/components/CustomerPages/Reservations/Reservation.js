@@ -18,7 +18,7 @@ function Reservation({
       <NavBar />
       <div className="find-table">
         <div className="container">
-          <h1 className="find-table-title">Make a Reservation</h1>
+          <h1 className="find-table-title text-center">Make a Reservation</h1>
           <div className="find-table-comboBox">
             <form className="find-table-form" onSubmit={handleSubmit}>
               <label className="label__reservation" htmlFor="size">

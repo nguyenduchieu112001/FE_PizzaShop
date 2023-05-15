@@ -12,7 +12,7 @@ function Home() {
       <Helmet>
         <title>ZIA SONIA</title>
       </Helmet>
-      <NavBar/>
+      <NavBar />
       <main>
         <section className="section__home">
           <div className="wrap">
@@ -120,11 +120,10 @@ function Home() {
           <ReservationAPI />
         </div>
 
-        <div id="contact"  className="mt-85 section__home">
+        <div id="contact" className="mt-85 section__home">
           <div className="wrap-form-contact">
             <div className="form-contact-info">
               <h2>Contact Us</h2>
-              <p>39 Phạm Thị Liên, Kim Long, Huế</p>
               <div className="contact-info-content">
                 <div className="open-hours">
                   <p>Mon - Fri: 12pm - 10pm</p>
@@ -132,6 +131,7 @@ function Home() {
                   <p>Sunday: 11am - 11pm</p>
                 </div>
                 <div className="contact-info">
+                  <p>39 Phạm Thị Liên, Kim Long, Huế</p>
                   <p>nguyenduchieu112001@gmail.com</p>
                   <p>0912-762-685</p>
                 </div>

@@ -1,13 +1,14 @@
 import React from "react";
 import "./ConfirmReservation.css";
 import NavBar from "../Home/NavBar";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PayPalAPI from "./PayPalAPI";
 import { ImLocation2 } from "react-icons/im";
 import { AiFillCalendar, AiFillClockCircle } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { Helmet } from "react-helmet";
 import { toast } from "react-toastify";
+import { Nav } from "react-bootstrap";
 
 function ConfirmReservation({ customerData, handleReservationClick }) {
   const location = useLocation();
@@ -132,12 +133,14 @@ function ConfirmReservation({ customerData, handleReservationClick }) {
                 <BsFillPeopleFill className="mx-2" />
                 {numPeople} guests
               </p>
-              <Link
-                to="/home"
+              <Nav.Link
+                // to="/home"
+                className="nav-link nx-3"
+                href="/home#reservation"
                 onClick={() => handleReservationClick("reservationId")}
               >
                 Change
-              </Link>
+              </Nav.Link>
             </div>
           </div>
         </div>

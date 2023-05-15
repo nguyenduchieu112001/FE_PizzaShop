@@ -1,5 +1,6 @@
 import { Modal } from "antd";
 import React, { useState } from "react";
+import {BsTrash3Fill} from 'react-icons/bs'
 
 function ModalConfirm({ id, handleRemoveCart, cartItems }) {
   const [show, setShow] = useState(false);
@@ -8,7 +9,7 @@ function ModalConfirm({ id, handleRemoveCart, cartItems }) {
   const productSize = cartItems.find((item) => item.productSize.id === id);
   return (
     <>
-      <button onClick={handleShow}>Remove</button>
+      <button onClick={handleShow}> <BsTrash3Fill /> </button>
       <Modal
         title="Xóa sản phẩm"
         open={show}
