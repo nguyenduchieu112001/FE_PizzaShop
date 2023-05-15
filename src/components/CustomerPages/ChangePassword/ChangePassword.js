@@ -20,7 +20,7 @@ function ChangePassword({ errMsg, handleSubmit }) {
     navigate("/sign-in");
   };
   return (
-    <>
+    <div className="pt-[100px]">
       <Card
         title={<h1>Change Password</h1>}
         bordered={true}
@@ -109,7 +109,7 @@ function ChangePassword({ errMsg, handleSubmit }) {
             <Button
               type="primary"
               htmlType="submit"
-              style={{ marginRight: "16px" }}
+              className="bg-[#1677ff] mr-4"
             >
               Change password
             </Button>
@@ -119,7 +119,7 @@ function ChangePassword({ errMsg, handleSubmit }) {
           </Form.Item>
         </Form>
       </Card>
-    </>
+    </div>
   );
 }
 

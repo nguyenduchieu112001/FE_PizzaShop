@@ -5,6 +5,8 @@ import "../Reservations/Reservation.css";
 import "./Home.css";
 import ReservationAPI from "../Reservations/ReservationAPI";
 import { Helmet } from "react-helmet";
+import { GoLocation } from "react-icons/go";
+import { MdEmail, MdPhone } from "react-icons/md";
 
 function Home() {
   return (
@@ -131,9 +133,18 @@ function Home() {
                   <p>Sunday: 11am - 11pm</p>
                 </div>
                 <div className="contact-info">
-                  <p>39 Phạm Thị Liên, Kim Long, Huế</p>
-                  <p>nguyenduchieu112001@gmail.com</p>
-                  <p>0912-762-685</p>
+                  <div className="flex w-[200%] mb-[10px]">
+                    <GoLocation className="w-[50px] text-2xl" />
+                    <p>39 Phạm Thị Liên, Kim Long, Huế</p>
+                  </div>
+                  <div className="flex w-[200%] mb-[10px]">
+                    <MdEmail className="w-[50px] text-2xl" />
+                    <p>nguyenduchieu112001@gmail.com</p>
+                  </div>
+                  <div className="flex w-[200%]">
+                    <MdPhone className="w-[50px] text-2xl" />
+                    <p>0912-762-685</p>
+                  </div>
                 </div>
               </div>
             </div>

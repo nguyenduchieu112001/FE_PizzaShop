@@ -17,7 +17,7 @@ function InputEmail({
     });
   };
   return (
-    <>
+    <div className="pt-[100px]">
       <Card
         title={<h1>Validation Email</h1>}
         bordered={true}
@@ -62,12 +62,12 @@ function InputEmail({
           >
             <Input />
           </Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" className="bg-[#1677ff]">
             Get code
           </Button>
         </Form>
       </Card>
-    </>
+    </div>
   );
 }
 

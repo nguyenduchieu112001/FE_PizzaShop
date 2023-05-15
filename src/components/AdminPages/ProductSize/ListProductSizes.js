@@ -101,7 +101,7 @@ function ListProductSizes({
           <Paginations totalPages={totalPages} onPageChange={onPageChange} />
           <Modal show={show} onHide={handleClose}>
             <ModalHeader closeButton>
-              <HeaderContent>Add Product Type</HeaderContent>
+              <HeaderContent>Add Product Size</HeaderContent>
             </ModalHeader>
             <ModalBody>
               <AddProductSizeAPI

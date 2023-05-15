@@ -23,7 +23,7 @@ function ProductSize({ productSize, index, fetchData }) {
 
       <Modal show={showEdit} onHide={handleCloseEdit}>
         <ModalHeader closeButton>
-          <ModalTitle>Edit Product Type</ModalTitle>
+          <ModalTitle>Edit Product Size</ModalTitle>
         </ModalHeader>
         <ModalBody>
           <EditProductSizeAPI

@@ -25,7 +25,7 @@ function EditProductSizeAPI({ productSize, handleCloseEdit, fetchData }) {
             }
           );
           handleCloseEdit(false);
-          toast.success("Update product type successfully!", {
+          toast.success("Update product size successfully!", {
             draggable: true,
             position: toast.POSITION.TOP_RIGHT,
           });
