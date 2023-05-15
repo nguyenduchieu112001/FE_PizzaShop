@@ -1,11 +1,12 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import AddProductSize from './AddProductSize';
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import AddProductSize from "./AddProductSize";
 
 function AddProductSizeAPI({ handleClose, fetchData }) {
-    const [productSize, setProductSize] = useState("");
+  const [productSize, setProductSize] = useState("");
+  const [percent, setPercent] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
   const [showAlert, setShowAlert] = useState(false); // new state variable for showing/hiding the alert
@@ -16,7 +17,7 @@ function AddProductSizeAPI({ handleClose, fetchData }) {
     try {
       await axios.post(
         `http://localhost:8080/api/v1/size/add`,
-        { name: productSize },
+        { name: productSize, percentPrice: percent },
         {
           headers: {
             "Content-Type": "application/json",
@@ -27,7 +28,7 @@ function AddProductSizeAPI({ handleClose, fetchData }) {
       );
       setProductSize("");
       handleClose(false);
-      toast.success("Add new product type successful!", {
+      toast.success("Add new product size successful!", {
         draggable: true,
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -40,16 +41,15 @@ function AddProductSizeAPI({ handleClose, fetchData }) {
       }
       if (error.response?.status === 403 || error.response?.status === 401) {
         navigate("/admin");
-        localStorage.clear()
+        localStorage.clear();
       }
     }
   };
   return (
     <>
       <AddProductSize
-        productSize={productSize}
         setProductSize={setProductSize}
-        errMsg={errMsg}
+        setPercent={setPercent}
         handleSubmit={handleSubmit}
       />
       {showAlert && (
@@ -60,7 +60,7 @@ function AddProductSizeAPI({ handleClose, fetchData }) {
         </div>
       )}
     </>
-  )
+  );
 }
 
-export default AddProductSizeAPI
+export default AddProductSizeAPI;
