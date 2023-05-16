@@ -20,22 +20,14 @@ function EditProduct({
   setSelectedSizes,
 }) {
   const [selectAll, setSelectAll] = useState(false);
-  useEffect(() => {
-    if (selectedSizes.length === sizes.length) {
-      setSelectAll(true);
-    } else {
-      setSelectAll(false);
-    }
-  }, [selectedSizes, sizes]);
   const handleSelectAll = () => {
     if (selectAll) {
       setSelectedSizes([]);
     } else {
-      setSelectedSizes(sizes.map((size) => size.size.id));
+      setSelectedSizes(sizes.map((size) => size.id));
     }
     setSelectAll(!selectAll);
   };
-
   const handleSelectSize = (id) => {
     if (selectedSizes.includes(id)) {
       setSelectedSizes((prevSelectedSizes) =>
@@ -49,6 +41,14 @@ function EditProduct({
       }
     }
   };
+  useEffect(() => {
+    if (selectedSizes.length === sizes.length) {
+      setSelectAll(true);
+    } else {
+      setSelectAll(false);
+    }
+  }, [selectedSizes, sizes]);
+
 
   return (
     <Form onSubmit={handleSave}>
