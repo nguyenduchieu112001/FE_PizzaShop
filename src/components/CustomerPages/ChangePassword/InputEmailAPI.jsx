@@ -18,7 +18,6 @@ function InputEmailAPI() {
         }
       );
 
-      localStorage.setItem("customerID", response.data.message);
       const resolveAfter3Sec = new Promise((resolve) =>
         setTimeout(resolve, 4000)
       );
@@ -34,7 +33,11 @@ function InputEmailAPI() {
           withCredentials: true,
         }
       );
-      navigate("/change-password");
+      navigate("/change-password", {
+        state: {
+          customerId: response.data.message
+        }
+      });
     } catch (error) {
       if (error?.response) {
         setErrMsg(error.response.data.message);

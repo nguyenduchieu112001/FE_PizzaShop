@@ -11,6 +11,7 @@ import ColumnsReservation from "./Reservation/ColumnsReservation";
 import DataBill from "./Bill/DataBill";
 import ColumnsBill from "./Bill/ColumnsBill";
 import Detail from "./Bill/Detail/Detail"
+import ChangePasswordAPI from "./ChangePassword/ChangePasswordAPI";
 
 function Information({
   customer,
@@ -64,6 +65,10 @@ function Information({
                 key: "3",
                 label: "Bills",
               },
+              {
+                key: "4",
+                label: "Change Password",
+              }
             ]}
           />
         </Sider>
@@ -112,6 +117,11 @@ function Information({
                 }}
               />
             )}
+            {
+              selectedMenuItem === "4" && (
+                <ChangePasswordAPI customer={customer} />
+              )
+            }
             <Detail show={show} CloseModal={CloseModal} billDetail={billDetail} />
           </Content>
         </Layout>

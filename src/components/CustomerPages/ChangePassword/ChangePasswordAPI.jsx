@@ -1,14 +1,20 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ChangePassword from "./ChangePassword";
 
 function ChangePasswordAPI() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const customerId = location.state && location.state.customerId;
   const [errMsg, setErrMsg] = useState("");
-
-  // };
+  // console.log(customerId);
+  useEffect(()=> {
+    if(location.state === null) {
+      navigate("/send-email");
+    }
+  }, [location, navigate])
 
   const handleSubmit = async (password, code) => {
     const data = {
@@ -16,9 +22,9 @@ function ChangePasswordAPI() {
         code: code,
     }
     try {
-      const id = parseInt(localStorage.getItem("customerID"));
+      const id = parseInt(customerId)
       await axios.put(
-        `http://localhost:8080/api/v1/customer/change-password/${id}`,
+        `http://localhost:8080/api/v1/customer/forgot-password/${id}`,
         data,
         {
           headers: { "Content-Type": "application/json" },

@@ -14,7 +14,7 @@ const DataDetail = (billDetail) =>
     quantity: item.quantity,
     productType: item.productSize.product.productType.name,
     size: item.productSize.size.name,
-    productPrice: item.productSize.productPrice,
-    totalPrice: item.productSize.productPrice * item.quantity
+    productPrice: item.productSize.productPrice.toLocaleString('vi-VN'),
+    totalPrice: (item.productSize.productPrice * item.quantity).toLocaleString('vi-VN')
   }));
 export default DataDetail;

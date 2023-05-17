@@ -1,20 +1,21 @@
 import { SearchOutlined } from "@material-ui/icons";
-import { Space } from "antd";
 import Search from "antd/es/input/Search";
 import React from "react";
 import { Container, Table } from "react-bootstrap";
 import Paginations from "../layout/Paginations";
-import Bill from "./Bill";
+import Reservation from "./Reservation";
 import { Helmet } from "react-helmet";
-function ListBills({
-  bills,
-  fetchBill,
+import { Space } from "antd";
+function ListReservations({
+  reservations,
+  fetchData,
   onPageChange,
   totalPages,
-  totalElement,
+  totalElements,
   setQuery,
 }) {
-  const handleSearch = (value) => {
+  const handleSearch = (event) => {
+    const {value} = event.target
     setQuery(value);
   };
   return (
@@ -27,18 +28,17 @@ function ListBills({
       }}
     >
       <Helmet>
-        <title>Bills</title>
+        <title>Reservations</title>
       </Helmet>
       <Container>
-        <div className="py-3">
+        <div className='"py-3'>
           <h1>
-            <b>Bill Manager</b>
+            <b>Reservation Manager</b>
           </h1>
           <br />
           <div>
             <h5 style={{ float: "left" }}>
-              {" "}
-              Có tất cả <strong>{totalElement}</strong> đơn hàng
+              Có tất cả <strong>{totalElements}</strong> đặt trước
             </h5>
           </div>
           <Space direction="vertical" style={{ float: "right" }}>
@@ -47,7 +47,7 @@ function ListBills({
               enterButton
               size="large"
               suffix={<SearchOutlined />}
-              onSearch={handleSearch}
+              onChange={handleSearch}
             />
           </Space>
           <Table className="table table-striped border shadow">
@@ -56,17 +56,22 @@ function ListBills({
                 <th scope="col">#</th>
                 <th scope="col">Code</th>
                 <th scope="col">Created Date</th>
-                <th scope="col">Total</th>
+                <th scope="col">Reservation Date</th>
+                <th scope="col">Reservation Time</th>
+                <th scope="col">Party Size</th>
                 <th scope="col">Status</th>
                 <th scope="col">Customer</th>
-                <th scope="col">Bill Details</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              {bills.map((bill, index) => (
-                <tr key={bill.id}>
-                  <Bill bill={bill} index={index} fetchBill={fetchBill} />
+              {reservations.map((reservation, index) => (
+                <tr key={reservation.id}>
+                  <Reservation
+                    reservation={reservation}
+                    index={index}
+                    fetchData={fetchData}
+                  />
                 </tr>
               ))}
             </tbody>
@@ -78,4 +83,4 @@ function ListBills({
   );
 }
 
-export default ListBills;
+export default ListReservations;

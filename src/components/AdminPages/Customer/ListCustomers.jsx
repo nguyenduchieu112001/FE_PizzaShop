@@ -15,7 +15,8 @@ function ListCustomers({
   totalElement,
   setQuery,
 }) {
-  const handleSearch = (value) => {
+  const handleSearch = (event) => {
+    const {value} = event.target
     setQuery(value);
   };
   return (
@@ -46,7 +47,7 @@ function ListCustomers({
                   enterButton={<SearchOutlined />}
                   size="midle"
                   // suffix={<SearchOutlined />}
-                  onSearch={handleSearch}
+                  onChange={handleSearch}
                 />
               </div>
 

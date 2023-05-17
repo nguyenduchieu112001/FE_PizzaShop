@@ -1,10 +1,12 @@
+import moment from "moment";
+
 const DataBill = (bill) => 
     bill.map((item, index) => ({
         key: item.id,
         sur: index+1,
         billCode: item.billCode,
-        createdAt: item.createdAt,
-        total: item.total,
+        createdAt: moment(item.createdAt).format('DD/MM/YYYY'),
+        total: item.total.toLocaleString('vi-VN'),
         billStatus: item.billStatus,
         action: item.orders
     }))

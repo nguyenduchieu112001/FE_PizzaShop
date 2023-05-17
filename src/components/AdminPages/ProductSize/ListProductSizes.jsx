@@ -29,7 +29,8 @@ function ListProductSizes({
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const handleSearch = (value) => {
+  const handleSearch = (event) => {
+    const {value} = event.target
     setQuery(value);
   };
   return (
@@ -60,7 +61,7 @@ function ListProductSizes({
                 enterButton={<SearchOutlined />}
                 size="midle"
                 // suffix={<SearchOutlined />}
-                onSearch={handleSearch}
+                onChange={handleSearch}
               />
             </div>
             <Button
