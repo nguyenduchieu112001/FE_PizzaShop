@@ -2,7 +2,7 @@ import { Button, Form, Input } from "antd";
 import React from "react";
 import { Helmet } from "react-helmet";
 
-function Login({ handleSubmit }) {
+function Login({ handleSubmit, form }) {
   const onFinish = (values) => {
     handleSubmit(values.username, values.Password);
   };
@@ -12,6 +12,7 @@ function Login({ handleSubmit }) {
         <title>Auth - Login</title>
       </Helmet>
       <Form
+        form={form}
         name="basic"
         labelCol={{
           span: 6,
@@ -23,7 +24,6 @@ function Login({ handleSubmit }) {
           maxWidth: 600,
         }}
         onFinish={onFinish}
-        //   onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item

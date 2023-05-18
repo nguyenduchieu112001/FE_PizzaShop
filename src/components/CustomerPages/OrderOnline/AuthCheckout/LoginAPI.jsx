@@ -3,9 +3,16 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Login from "./Login";
+import { useForm } from "antd/es/form/Form";
 
 function LoginAPI() {
   const navigate = useNavigate();
+  const form = useForm();
+
+  const handleResetFields = () => {
+    form.resetFields(['Password']);
+  };
+
   const handleSubmit = async (username, password) => {
     try {
       const response = await axios.post(
@@ -41,9 +48,10 @@ function LoginAPI() {
           position: toast.POSITION.TOP_RIGHT,
         });
       }
+      handleResetFields();
     }
   };
-  return <Login handleSubmit={handleSubmit} />;
+  return <Login handleSubmit={handleSubmit} form={form} />;
 }
 
 export default LoginAPI;

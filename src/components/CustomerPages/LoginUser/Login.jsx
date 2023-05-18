@@ -2,19 +2,12 @@ import { Button, Card, Col, Form, Input, Row } from "antd";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 
-function Login({ handleSubmit, errMsg }) {
+function Login({ handleSubmit, form }) {
   const onFinish = (values) => {
     handleSubmit(values.username, values.Password);
   };
 
-  const onFinishFailed = () => {
-    toast.error(errMsg, {
-      draggable: true,
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
   return (
     <div className="pt-[100px]">
       <Helmet>
@@ -31,6 +24,7 @@ function Login({ handleSubmit, errMsg }) {
         className="bg-[rgba(173,178,181,.5)]"
       >
         <Form
+          form={form}
           name="basic"
           labelCol={{
             span: 6,
@@ -45,7 +39,6 @@ function Login({ handleSubmit, errMsg }) {
             remember: true,
           }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
@@ -91,17 +84,15 @@ function Login({ handleSubmit, errMsg }) {
               Login
             </Button>
           </Form.Item>
-          <Form.Item>
-            <Row className="flex">
-              <Col span={12}>
-                <Link to="/send-mail">Quên mật khẩu</Link>
-              </Col>
-              <Col span={12} className="pl-[30%]">
-                <Link to="/sign-up">Đăng ký</Link>
-              </Col>
-            </Row>
-          </Form.Item>
         </Form>
+        <Row className="flex">
+          <Col span={12}>
+            <Link to="/send-mail">Quên mật khẩu</Link>
+          </Col>
+          <Col span={12} className="text-end">
+            <Link to="/sign-up">Đăng ký</Link>
+          </Col>
+        </Row>
       </Card>
     </div>
   );

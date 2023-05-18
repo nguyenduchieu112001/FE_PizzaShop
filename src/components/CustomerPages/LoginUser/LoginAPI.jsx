@@ -1,14 +1,17 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Login from "./Login";
+import { useForm } from "antd/es/form/Form";
 
 function LoginAPI() {
   const navigate = useNavigate();
+  const [form] = useForm();
 
-  // const { setAuth } = useContext(AuthContext);
-  const [errMsg, setErrMsg] = useState("");
+  const handleResetFields = () => {
+    form.resetFields(['Password']);
+  }
 
   const handleSubmit = async (username, password) => {
     try {
@@ -29,31 +32,29 @@ function LoginAPI() {
       navigate("/home");
     } catch (error) {
       if (!error?.response) {
-        setErrMsg("No Server Response");
         toast.error("No Server Response", {
           draggable: true,
           position: toast.POSITION.TOP_RIGHT,
         });
       } else if (error.response?.status === 400) {
-        setErrMsg("Missing username or password");
         toast.error("Missing username or password", {
           draggable: true,
           position: toast.POSITION.TOP_RIGHT,
         });
       } else {
-        setErrMsg("Login Failed");
         toast.error("Login Failed", {
           draggable: true,
           position: toast.POSITION.TOP_RIGHT,
         });
       }
+      handleResetFields();
     }
   };
   return (
     <>
       <Login
         handleSubmit={handleSubmit}
-        errMsg={errMsg}
+        form={form}
       />
     </>
   );

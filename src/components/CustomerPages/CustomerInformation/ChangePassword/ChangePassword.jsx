@@ -2,14 +2,18 @@ import { Button, Form, Input } from "antd";
 import React from "react";
 import { Helmet } from "react-helmet";
 
-function ChangePassword({ handleChangePassword, customer }) {
-  const onFinish = async(values) => {
-    const form = {
+function ChangePassword({
+  handleChangePassword,
+  customer,
+  form,
+}) {
+  const onFinish = async (values) => {
+    const data = {
       username: customer.userName,
       password: values.password,
       newPassword: values.newPassword,
     };
-    await handleChangePassword(form);
+    await handleChangePassword(data);
   };
   return (
     <div className="pl-[250px]">
@@ -17,6 +21,7 @@ function ChangePassword({ handleChangePassword, customer }) {
         <title>Change Password</title>
       </Helmet>
       <Form
+        form={form}
         name="basic"
         labelCol={{
           span: 6,
@@ -62,8 +67,7 @@ function ChangePassword({ handleChangePassword, customer }) {
             },
           ]}
         >
-          <Input.Password
-          />
+          <Input.Password />
         </Form.Item>
         <Form.Item
           label="Confirm Password"
@@ -85,8 +89,7 @@ function ChangePassword({ handleChangePassword, customer }) {
             }),
           ]}
         >
-          <Input.Password
-          />
+          <Input.Password />
         </Form.Item>
         <Form.Item
           wrapperCol={{
