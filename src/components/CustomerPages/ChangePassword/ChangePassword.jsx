@@ -58,8 +58,10 @@ function ChangePassword({ errMsg, handleSubmit }) {
                 message: "Please input your New Password!",
               },
               {
-                type: "password",
-                message: "Please enter a valid Password!",
+                pattern:
+                  /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,}$/,
+                message:
+                  "8 to 24 characters. Must include uppercase and lowercase letters, a number and a special character. Allowed special characters: (!@#$%)",
               },
             ]}
           >

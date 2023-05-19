@@ -7,7 +7,7 @@ import { useForm } from "antd/es/form/Form";
 
 function LoginAPI() {
   const navigate = useNavigate();
-  const form = useForm();
+  const [form] = useForm();
 
   const handleResetFields = () => {
     form.resetFields(['Password']);

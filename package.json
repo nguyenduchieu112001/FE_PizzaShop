@@ -20,6 +20,7 @@
     "moment": "^2.29.4",
     "paypal-checkout": "^4.0.336",
     "paypal-rest-sdk": "^1.8.1",
+    "pnpm": "^8.5.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.7.2",
     "react-datepicker": "^4.10.0",
