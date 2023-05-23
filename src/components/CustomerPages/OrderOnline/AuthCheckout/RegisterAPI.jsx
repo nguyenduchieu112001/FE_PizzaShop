@@ -1,11 +1,9 @@
 import axios from "axios";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Register from "./Register";
 
 function RegisterAPI() {
-  const navigate = useNavigate();
   const handleSubmit = async (values) => {
     try {
       const data = {
@@ -26,7 +24,7 @@ function RegisterAPI() {
         draggable: true,
         position: toast.POSITION.TOP_RIGHT,
       });
-      navigate("/auth");
+      window.location.reload();
     } catch (error) {
       if (error.response) {
         toast.error(error.response.data.message, {

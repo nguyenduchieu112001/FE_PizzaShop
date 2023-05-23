@@ -31,7 +31,7 @@ function ChangeInformation({
         open={show}
         onOk={() => {
           form.validateFields().then((values) => {
-            form.resetFields();
+            // form.resetFields();
             onFinish(values);
           });
         }}

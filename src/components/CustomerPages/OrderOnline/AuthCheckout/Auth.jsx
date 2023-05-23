@@ -10,7 +10,7 @@ function Auth() {
       <NavBar />
       <div className="flex justify-center pt-[150px]">
         <Tabs
-          defaultActiveKey="1"
+          defaultSelectedKeys="1"
           type="card"
           size={"large"}
           style={{
@@ -18,7 +18,6 @@ function Auth() {
             margin: "auto",
           }}
           tabBarStyle={{ justifyContent: "center" }}
-          acti
           items={[
             {
               label: "Đăng nhập",
